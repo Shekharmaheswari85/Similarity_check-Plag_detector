@@ -3,6 +3,7 @@ from flask_restful import Api , Resource
 from pymongo import MongoClient
 import bcrypt
 import spacy
+from utils import plagcheck
 
 
 app = Flask(__name__)
@@ -85,14 +86,7 @@ class Detect(Resource):
                 "msg":"You're out of tokens, please refill"
             }
             return jsonify(retJson)
-
-        nlp = spacy.load('en_core_web_sm')
-
-        text1=nlp(text1)
-        text2=nlp(text2)
-
-        ratio=text1.similarity(text2)
-
+        ratio=plagcheck(text1)
         retJson = {
             "status":200,
             "similarity":ratio,
