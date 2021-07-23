@@ -3,3 +3,4 @@ requests==2.26.0
 beautifulsoup4==4.9.3
 flask_wtf==0.15.1
 WTForms==2.3.3
+gunicorn
