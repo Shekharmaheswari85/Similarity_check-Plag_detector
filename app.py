@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect
 from forms import PlagForm
 import Requests_ex
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '827e763e55e41e32381c13afc4338d5f'
 get_text = []
